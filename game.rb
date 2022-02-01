@@ -1,6 +1,6 @@
 class Game
 
-  @@current_player = ''
+  @@current_player = 'Player 1'
 
   def initialize
 
@@ -16,12 +16,28 @@ class Game
     return numbers
   end
 
-  def ask_question
+  def generate_question
     numbers = generate_numbers
 
     question = "What does #{numbers.first} plus #{numbers.last} equal?"
 
-    puts question
+    return question
+  end
+
+  def ask_question
+    numbers = generate_numbers
+    question = "What does #{numbers.first} plus #{numbers.last} equal?"
+    
+    puts "#{@@current_player}: #{question}"
+
+    answer = gets.chomp
+    
+    if numbers.first + numbers.last == answer.to_i
+      puts "YES! You are correct."
+    else
+      puts "Seriously? No!"
+    end
+
   end
 
   def start_game
