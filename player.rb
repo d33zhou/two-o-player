@@ -1,6 +1,4 @@
-require './game'
-
-class Player < Game
+class Player
 
   def initialize(name)
     @name = name
